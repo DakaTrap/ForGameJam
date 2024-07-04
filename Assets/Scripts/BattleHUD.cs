@@ -14,12 +14,14 @@ public class BattleHUD : MonoBehaviour
     public BattleCharacter enemy;
     public Button attkButton;
     public Button DefButton;
-    public GameObject text_go;
+    public GameObject go_EndText;
+    public GameObject go_BackToMain;
     void Start()
     {
         attkButton.interactable = false;
         DefButton.interactable = false;
-        text_go.SetActive(false);
+        go_EndText.SetActive(false);
+        go_BackToMain.SetActive(false);
         battleSystem = GameObject.Find("BattleSystem").GetComponent<BattleSystem>();
         EventCenter.AddListener(EventType.PlayerTurn, PlayerTurnHUD);
         EventCenter.AddListener(EventType.EnemyTurn, EnemyTurnHUD);
@@ -64,8 +66,9 @@ public class BattleHUD : MonoBehaviour
     public void EndHUD(bool isWin)
     {
         
-        text_go.SetActive(true);
-        Text text = text_go.GetComponent<Text>();
+        go_EndText.SetActive(true);
+        go_BackToMain.SetActive(true);
+        Text text = go_EndText.GetComponent<Text>();
         attkButton.interactable = false;
         attkButton.onClick.RemoveAllListeners();
         DefButton.interactable = false;

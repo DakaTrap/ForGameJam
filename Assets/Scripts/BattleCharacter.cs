@@ -31,8 +31,8 @@ public class BattleCharacter : Character {
     }
     public void InitialData()
     {
-        currHP = maxHP = health;
-        currEP = maxEP = energy;
+        currHP = maxHP = health.value;
+        currEP = maxEP = energy.value;
     }
 
     public void Active(Ability ability, BattleCharacter go)
